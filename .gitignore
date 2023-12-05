@@ -1,0 +1,62 @@
+# System files #
+################
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# Dependency directories #
+##########################
+node_modules/
+vendor/
+
+# Optional npm cache directory #
+################################
+.npm/
+
+# Optional eslint cache #
+########################
+.eslintcache
+
+# Environment files #
+#####################
+.env
+.env.local
+.env.*.local
+
+# Ignore Docker volumes and local data #
+########################################
+**/data/*
+**/volumes/*
+
+# Ignore sensitive files #
+##########################
+**/secrets.yml
+**/secrets.yaml
+**/secrets/*.json
+
+# Ignore IDE and editor config files #
+######################################
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Build and dist directories #
+##############################
+/dist/
+/build/
+
+# Miscellaneous #
+#################
+*.swp
+*.lock
+*.tmp
+*.bak
+*.class
+*.sass-cache
