@@ -9,7 +9,7 @@ services:
     container_name: nginx
     restart: always
     volumes:
-      - ./www:/var/www/html # in some case /www:/www
+      - ./www:/usr/share/nginx/html # in some case /www:/www
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports: 
       - 80:80
