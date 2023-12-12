@@ -1,7 +1,7 @@
-#===-=-=-=-=-=-===-=-=-=-=-=-===# #===-=-=-=-=-=-===-=-=-=-=-=-===# php-fpm  + nginx + mysql + phpmyadmin 
-#===-=-=-=-=-=-===-=-=-=-=-=-===# Version
+#===-=-=-=-=-=-===-=-=-=-=-=-===#
+# nginx + php-fpm + phpmyadmin
+#===-=-=-=-=-=-===-=-=-=-=-=-===#
 version: "3.8"
-#===-=-=-=-=-=-===-=-=-=-=-=-===# #===-=-=-=-=-=-===-=-=-=-=-=-===# services:
 services:
 #===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
   nginx:
@@ -9,23 +9,21 @@ services:
     container_name: nginx
     restart: always
     volumes:
-      - ./www:/usr/share/nginx/html # in some case /www:/www
+      - ./html:/usr/share/nginx/html
       - ./nginx/conf.d:/etc/nginx/conf.d
-    ports: 
-      - 80:80
-    depends_on:
-      - php  # Nginx needs PHP to be ready
+    ports:
+      - "80:80"
     networks:
-      - app-network 
+      - app-network
 #===-=-=-=-=-=-===-=-=-=-=-=-===# php
   php:
     image: php:fpm
     container_name: php
-    restart: always      
+    restart: always
     volumes:
-      - ./www:/var/www/html
+      - ./html:/usr/share/nginx/html
     networks:
-      - app-network 
+      - app-network
 #===-=-=-=-=-=-===-=-=-=-=-=-===# mysql
   mysql:
     image: mysql:5.7
@@ -33,13 +31,13 @@ services:
     restart: always
     environment:
      MYSQL_ROOT_PASSWORD: root
-     MYSQL_DATABASE: myappdb # or localhost
+     MYSQL_DATABASE: myappdb
      MYSQL_USER: myuser
      MYSQL_PASSWORD: password
-    volumes:  
+    volumes:
      - db:/var/lib/mysql
     networks:
-      - app-network 
+      - app-network
 # #===-=-=-=-=-=-===-=-=-=-=-=-===# phpMyAdmin
   pma:
     image: phpmyadmin/phpmyadmin
@@ -52,11 +50,10 @@ services:
     ports:
       - "8081:80"
     depends_on:
-     - mysql # phpMyAdmin needs MySQL to be ready
+     - mysql
     networks:
-      - app-network 
-#===-=-=-=-=-=-===-=-=-=-=-=-===#
-#===-=-=-=-=-=-===-=-=-=-=-=-===# #===-=-=-=-=-=-===-=-=-=-=-=-===# Networks & Volumes
+      - app-network
+#===-=-=-=-=-=-===-=-=-=-=-=-===#  Networks & Volumes
 networks:
   app-network:
     driver: bridge
