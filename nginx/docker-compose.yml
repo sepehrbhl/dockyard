@@ -13,5 +13,4 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - "80:80"
-    networks:
-      - app-network
+      
