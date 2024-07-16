@@ -1,0 +1,16 @@
+#===-=-=-=-=-=-===-=-=-=-=-=-===#
+# nginx
+#===-=-=-=-=-=-===-=-=-=-=-=-===#
+version: "3.8"
+services:
+#===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
+  nginx:
+    image: nginx:alpine
+    container_name: nginx
+    restart: always
+    volumes:
+      - ./html:/usr/share/nginx/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      
