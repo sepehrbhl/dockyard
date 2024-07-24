@@ -1,5 +1,5 @@
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
-# nginx + php-fpm + phpmyadmin
+# nginx + php-fpm + mysql + phpmyadmin
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
 version: "3.8"
 services:
