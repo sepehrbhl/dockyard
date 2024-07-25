@@ -1,17 +1,27 @@
 # Dockerfile for app(Front-end)
+
+# Use Node.js version 14 as the base image
 FROM node:14
 
 # Set working directory
 WORKDIR /app
 
-# Copy only package.json and package-lock.json (if exists)
-COPY package*.json ./
+# If package.json does not exist, create it and install dependencies;
+# Otherwise, copy package.json and package-lock.json if they exist
+RUN if [ ! -f package.json ]; then \
+        npm init -y && npm install; \
+    else \
+        cp package*.json ./; \
+    fi
 
-# Install dependencies
+# Install dependencies based on the package.json files
 RUN npm install
 
 # Copy the rest of the application files
 COPY . .
+
+# Build the app
+RUN npm run build
 
 # Expose the application on port 3000
 EXPOSE 3000

@@ -14,7 +14,7 @@ services:
     depends_on:
       - api
     networks:
-      - base_network
+      - base-network
     restart: unless-stopped 
 #===-=-=-=-=-=-===-=-=-=-=-=-===# api
   api:
@@ -27,24 +27,24 @@ services:
     volumes:
       - ./api/src:/app/src
     depends_on:
-      - mongo
+      - mongodb
     networks:
-      - base_network
+      - base-network
     restart: unless-stopped
 #===-=-=-=-=-=-===-=-=-=-=-=-===# mongoDB
-  mongoDB:
+  mongodb:
     image: mongo
-    container_name: mongoDB
+    container_name: mongodb
     ports:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
     networks:
-      - base_network
+      - base-network
     restart: unless-stopped
 #===-=-=-=-=-=-===-=-=-=-=-=-===#  Networks & Volumes
 networks:
-  base_network:
+  base-network:
   
 volumes:
   mongo-data:
