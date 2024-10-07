@@ -7,11 +7,10 @@ services:
   app:
     build: ./app
     container_name: app
-    image: nodeAPP
     ports:
       - "3000:3000"
     volumes:
-      - ./app/src:/app/src
+      - ./app/src:/usr/src/app-src
     depends_on:
       - api
     networks:
@@ -26,7 +25,7 @@ services:
     environment:
       MONGO_URI: mongodb://mongo:27017/mydatabase
     volumes:
-      - ./api/src:/app/src
+      - ./api/src:/usr/src/api-src
     depends_on:
       - mongodb
     networks:
@@ -39,13 +38,10 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - ./mongo-data:/data/db
     networks:
       - base-network
     restart: unless-stopped
 #===-=-=-=-=-=-===-=-=-=-=-=-===#  Networks & Volumes
 networks:
   base-network:
-  
-volumes:
-  mongo-data:
