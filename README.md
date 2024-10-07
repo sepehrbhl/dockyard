@@ -42,38 +42,80 @@ To use any of these templates:
 4. Follow the instructions in the specific environment's `README.md` file for further details.
 
 ### Structure
+.
 
-. Dockyard
-├── nginx
-│   ├── docker-compose.yml
+├── LICENSE	
+
+├── nginx	
+
+│   ├── docker-compose.yml 
+
 │   ├── nginx
+
 │   │   └── conf.d
+
 │   │       └── default.conf
+
 │   └── www
+
 │       └── index.php
+
 ├── nginx+php
+
 │   ├── docker-compose.yml
+
 │   ├── nginx
+
 │   │   └── conf.d
+
 │   │       └── default.conf
+
 │   └── www
+
 │       └── index.php
+
 ├── nginx+php+mysql+phpmyadmin 
+
 │   ├── docker-compose.yml
+
 │   ├── nginx
+
 │   │   └── conf.d
+
 │   │       └── default.conf
+
 │   └── www
+
 │       └── index.php
-├── Node.js
-│    ├── api
-│    │   ├── dockerfile
-│    │   └── src
-│    ├── app
-│    │   ├── dockerfile
-│    │   └── src
-│    └── docker-compose.yaml
+
+├── node(app)+node(api)+mongoDB
+
+│   ├── api
+
+│   │   ├── dockerfile
+
+│   │   ├── package.json
+
+│   │   └── src
+
+│   │       └── app.js
+
+│   ├── app
+
+│   │   ├── dockerfile
+
+│   │   ├── package.json
+
+│   │   └── src
+
+│   │       └── app.js
+
+│   └── docker-compose.yaml
+
 └── README.md
+
+
+18 directories, 18 files
 
 ## Contributing
 
