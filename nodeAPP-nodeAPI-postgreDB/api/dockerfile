@@ -1,0 +1,22 @@
+# Dockerfile for api(Back-end)
+
+# Use Node.js version 14 as the base image
+FROM node:14
+
+# Set working directory
+WORKDIR /usr/src
+
+# Copy package.json and package-lock.json files to the working directory
+# COPY package*.json ./
+
+# Install dependencies
+# RUN npm install
+
+# Copy the rest of the application files, including app.js in /src
+# COPY src .
+
+# # Expose the application on port 5000
+# EXPOSE 5000
+
+# Start the application from /src/app.js
+CMD ["node", "api-src/app.js"]
