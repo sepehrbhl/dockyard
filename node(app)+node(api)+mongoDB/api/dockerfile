@@ -4,19 +4,19 @@
 FROM node:14
 
 # Set working directory
-WORKDIR /app
+WORKDIR /usr/src
 
 # Copy package.json and package-lock.json files to the working directory
-COPY package*.json ./
+# COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+# RUN npm install
 
-# Copy the rest of the application files
-COPY . .
+# Copy the rest of the application files, including app.js in /src
+COPY src .
 
 # Expose the application on port 5000
 EXPOSE 5000
 
-# Start the application
+# Start the application from /src/app.js
 CMD ["node", "app.js"]
