@@ -1,9 +1,8 @@
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
 # nginx + php-fpm
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
-version: "3.8"
 services:
-#===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
   nginx:
     image: nginx:alpine
     container_name: nginx
@@ -15,7 +14,7 @@ services:
       - "80:80"
     networks:
       - app-network
-#===-=-=-=-=-=-===-=-=-=-=-=-===# php
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# php
   php:
     image: php:fpm
     container_name: php

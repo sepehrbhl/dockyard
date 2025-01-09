@@ -1,9 +1,8 @@
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
 # node(frontend-app) + node(backend-api) + mongo
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
-version: '3.8'
 services:
-#===-=-=-=-=-=-===-=-=-=-=-=-===# app
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# app
   app:
     build: ./app
     container_name: app
@@ -15,8 +14,8 @@ services:
       - api
     networks:
       - base-network
-    restart: unless-stopped 
-#===-=-=-=-=-=-===-=-=-=-=-=-===# api
+    restart: unless-stopped
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# api
   api:
     build: ./api
     container_name: api
@@ -31,7 +30,7 @@ services:
     networks:
       - base-network
     restart: unless-stopped
-#===-=-=-=-=-=-===-=-=-=-=-=-===# mongoDB
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# mongoDB
   mongodb:
     image: mongo
     container_name: mongodb

@@ -1,9 +1,8 @@
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
 # nginx
 #===-=-=-=-=-=-===-=-=-=-=-=-===#
-version: "3.8"
 services:
-#===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
+  #===-=-=-=-=-=-===-=-=-=-=-=-===# nginx
   nginx:
     image: nginx:alpine
     container_name: nginx
@@ -13,4 +12,3 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - "80:80"
-      
